@@ -3,20 +3,40 @@ package org.launchcode.techjobs_oo;
 import java.util.Objects;
 
 public class Location {
+
+    //====================================================================================================
+    //  Class Fields:
+    //====================================================================================================
+
     private int id;
     private static int nextId = 1;
     private String value;
 
+    //====================================================================================================
+    //  Class Constructors:
+    //====================================================================================================
+
+    // Default constructor for Location Class.
     public Location() {
         id = nextId;
         nextId++;
     }
 
-    // TODO: Add a constructor that takes a string as a parameter and assigns it to the 'value' field. The
-    //  constructor should also call the empty constructor in order to initialize the 'id' field.
+    // Alternate constructor for the Location Class.
+    public Location(String aValue) {
+        this();
+        this.value = aValue;
+    }
 
+    //====================================================================================================
+    //  Class Methods:
+    //====================================================================================================
 
-    // Custom toString, equals, and hashCode methods:
+    // Insert any Class Methods here...
+
+    //====================================================================================================
+    //  Custom Override Methods:
+    //====================================================================================================
 
     @Override
     public String toString() {
@@ -36,7 +56,9 @@ public class Location {
         return Objects.hash(getId());
     }
 
-    // Getters and Setters:
+    //====================================================================================================
+    //  Class Getters and Setters:
+    //====================================================================================================
 
     public int getId() {
         return id;
@@ -49,4 +71,5 @@ public class Location {
     public void setValue(String value) {
         this.value = value;
     }
+
 }
