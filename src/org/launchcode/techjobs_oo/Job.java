@@ -1,5 +1,6 @@
 package org.launchcode.techjobs_oo;
 
+import java.lang.reflect.Array;
 import java.util.Objects;
 
 public class Job {
@@ -49,6 +50,42 @@ public class Job {
     //====================================================================================================
     //  Custom Override Methods:
     //====================================================================================================
+
+
+    @Override
+    public String toString() {
+
+        String stringName = this.name;
+        String stringEmployer = this.employer.getValue();
+        String stringLocation = this.location.getValue();
+        String stringPositionType = this.positionType.getValue();
+        String stringCoreCompetency = this.coreCompetency.getValue();
+        String noData = "Data not available";
+
+        if (stringName == null) {
+            stringName = noData;
+        }
+
+        if (stringEmployer == null) {
+            stringEmployer = noData;
+        }
+
+        if (stringLocation == null) {
+            stringLocation = noData;
+        }
+
+        if (stringPositionType == null) {
+            stringPositionType = noData;
+        }
+
+        if (stringCoreCompetency == null) {
+            stringCoreCompetency = noData;
+        }
+
+        return "\r\n" + "ID: " + this.getId() + "\r\n" + "Name: " + stringName + "\r\n" + "Employ" +
+                "er: " + stringEmployer + "\r\n" + "Location: " + stringLocation + "\r\n" + "Position Type; " + stringPositionType + "\r\n" +
+                "CoreCompetency: " + stringCoreCompetency + "\r\n";
+    }
 
     @Override
     public boolean equals(Object o) {

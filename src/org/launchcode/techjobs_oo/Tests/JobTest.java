@@ -65,12 +65,51 @@ public class JobTest {
     public void testJobsForEquality() {
 
         // Arrange...
-        Job jobOne = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
-        Job jobTwo = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        Job jobOne = new Job("Product tester", new Employer("ACME"), new Location("Desert"),
+                new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        Job jobTwo = new Job("Product tester", new Employer("ACME"), new Location("Desert"),
+                new PositionType("Quality control"), new CoreCompetency("Persistence"));
 
         // Act...
 
         // Assert...
         assertFalse(jobOne.equals(jobTwo));
     }
+
+    @Test
+    public void customToStringMethodShouldContainJobInformationWithBlankLineBeforeAndAfter() {
+
+        // Arrange...
+        Job jobOne = new Job("Product tester", new Employer("ACME"), new Location("Desert"),
+                new PositionType("Quality control"), new CoreCompetency("Persistence"));
+
+        // Act...
+        String actualInformation = jobOne.toString();
+        String expectedInformation = "\r\n" + "ID: " + jobOne.getId() + "\r\n" + "Name: " + "Product tester" + "\r\n" + "Employ" +
+                "er: " + "ACME" + "\r\n" + "Location: " + "Desert" + "\r\n" + "Position Type; " + "Quality control" + "\r\n" +
+                "CoreCompetency: " + "Persistence" + "\r\n";
+
+        // Assert...
+        assertEquals(actualInformation, expectedInformation);
+    }
+
+    @Test
+    public void customToStringMethodShouldAddDataNotAvailableIfEmpty() {
+
+        // Arrange...
+        Job jobOne = new Job("Product tester", new Employer(), new Location("Desert"),
+                new PositionType("Quality control"), new CoreCompetency("Persistence"));
+
+        // Act...
+        String actualInformation = jobOne.toString();
+        String expectedInformation = "\r\n" + "ID: " + jobOne.getId() + "\r\n" + "Name: " + "Product tester" + "\r\n" + "Employ" +
+                "er: " + "Data not available" + "\r\n" + "Location: " + "Desert" + "\r\n" + "Position Type; " + "Quality control" + "\r\n" +
+                "CoreCompetency: " + "Persistence" + "\r\n";
+
+        // Assert...
+        System.out.println(actualInformation);
+        System.out.println(expectedInformation);
+        assertEquals(actualInformation, expectedInformation);
+    }
+
 }

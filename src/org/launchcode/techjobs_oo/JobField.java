@@ -2,25 +2,30 @@ package org.launchcode.techjobs_oo;
 
 import java.util.Objects;
 
-public class CoreCompetency extends JobField {
+public abstract class JobField {
 
     //====================================================================================================
     //  Class Fields:
     //====================================================================================================
 
+    private int id;
+    private static int nextId = 1;
+    private String value;
 
     //====================================================================================================
     //  Class Constructors:
     //====================================================================================================
 
-    // Default constructor for the CoreCompetency Class.
-    public CoreCompetency() {
-        super();
+    // Default constructor for the JobField Class
+    public JobField() {
+        id = nextId;
+        nextId++;
     }
 
-    // Alternative constructor for the CoreCompetency Class.
-    public CoreCompetency(String value) {
-        super(value);
+    // Alternate constructor for the Location Class.
+    public JobField(String aValue) {
+        this();
+        this.value = aValue;
     }
 
     //====================================================================================================
@@ -32,10 +37,39 @@ public class CoreCompetency extends JobField {
     //  Custom Override Methods:
     //====================================================================================================
 
+    @Override
+    public String toString() {
+        return value;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        JobField jobField = (JobField) o;
+        return getId() == jobField.getId() &&
+                Objects.equals(getValue(), jobField.getValue());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getId(), getValue());
+    }
 
     //====================================================================================================
     //  Class Getters and Setters:
     //====================================================================================================
 
+    public int getId() {
+        return id;
+    }
+
+    public String getValue() {
+        return value;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
+    }
 
 }
