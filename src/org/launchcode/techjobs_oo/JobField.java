@@ -8,7 +8,7 @@ public abstract class JobField {
     //  Class Fields:
     //====================================================================================================
 
-    private int id;
+    private final int id;
     private static int nextId = 1;
     private String value;
 

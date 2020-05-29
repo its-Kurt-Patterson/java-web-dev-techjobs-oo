@@ -23,11 +23,11 @@ public class JobTest {
         int jobTwoId = job2.getId();
 
         // Assert...
-        assertFalse(jobOneId == jobTwoId);
+        assertNotEquals(jobOneId, jobTwoId);
         assertNotEquals(jobTwoId + 1, jobOneId);
         assertNotEquals(jobOneId - 1, jobTwoId);
-        assertTrue((jobOneId + 1) == jobTwoId);
-        assertTrue((jobTwoId - 1) == jobOneId);
+        assertEquals((jobOneId + 1), jobTwoId);
+        assertEquals((jobTwoId - 1), jobOneId);
 
     }
 
