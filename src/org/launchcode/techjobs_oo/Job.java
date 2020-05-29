@@ -62,23 +62,23 @@ public class Job {
         String stringCoreCompetency = this.coreCompetency.getValue();
         String noData = "Data not available";
 
-        if (stringName == null) {
+        if (stringName == "" || stringName == null) {
             stringName = noData;
         }
 
-        if (stringEmployer == null) {
+        if (stringEmployer == "" || stringEmployer == null) {
             stringEmployer = noData;
         }
 
-        if (stringLocation == null) {
+        if (stringLocation == "" || stringLocation == null) {
             stringLocation = noData;
         }
 
-        if (stringPositionType == null) {
+        if (stringPositionType == "" || stringPositionType == null) {
             stringPositionType = noData;
         }
 
-        if (stringCoreCompetency == null) {
+        if ( stringCoreCompetency == "" || stringCoreCompetency == null) {
             stringCoreCompetency = noData;
         }
 
