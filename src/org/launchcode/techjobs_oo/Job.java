@@ -1,6 +1,5 @@
 package org.launchcode.techjobs_oo;
 
-import java.lang.reflect.Array;
 import java.util.Objects;
 
 public class Job {
@@ -9,7 +8,7 @@ public class Job {
     //  Class Fields:
     //====================================================================================================
 
-    private int id;
+    private final int id;
     private static int nextId = 1;
 
     private String name;

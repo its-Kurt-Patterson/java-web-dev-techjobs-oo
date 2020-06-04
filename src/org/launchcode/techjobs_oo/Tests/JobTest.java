@@ -73,7 +73,7 @@ public class JobTest {
         // Act...
 
         // Assert...
-        assertFalse(jobOne.equals(jobTwo));
+        assertNotEquals(jobOne, jobTwo);
     }
 
     @Test
